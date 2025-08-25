@@ -1,4 +1,3 @@
-// console.log("1" + 2);
-// console.log(1 + "2");
-// console.log("1" + 2 + 2);
-// console.log(1 + 2 + "2");
+let myCreatedDate = new Date(2023, 0, 23)
+let myCreatedDate = new Date(2023, 0, 23, 5, 3)
+let myCreatedDate = new Date("2023-01-14")
