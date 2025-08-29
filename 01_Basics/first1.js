@@ -31,7 +31,7 @@
 
 //let keyword
 //lett helps you avoid unnecessary double declaration
-let firstName = "anjali";
+// let firstName = "anjali";
 console.log(firstName);
 
 //declare const 
@@ -63,7 +63,7 @@ console.log(firstName[firstName.length-2]);
 // toLowerCase()
 // slice()
 
-let firstName = " Anjali  ";
+// let firstName = " Anjali  ";
 
 // console.log(firstName.length);
 // firstName = firstName.trim(); // "Anjali"
