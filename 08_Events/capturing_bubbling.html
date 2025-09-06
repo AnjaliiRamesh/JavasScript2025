@@ -1,0 +1,225 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .box {
+      padding: 30px;
+      margin: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+    #grandparent { background: #ffe0e0; }
+    #parent { background: #e0ffe0; }
+    #child { background: #e0e0ff; cursor: pointer; }
+    #log {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #f9f9f9;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 Event Propagation Demo</h2>
+
+  <div id="grandparent" class="box">
+    Grandparent
+    <div id="parent" class="box">
+      Parent
+      <div id="child" class="box">Child (Click Me)</div>
+    </div>
+  </div>
+
+  <button id="clear">Clear Log</button>
+
+  <div id="log">Logs will appear here 👇</div>
+
+  <script>
+    const grandparent = document.getElementById("grandparent");
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+    const log = document.getElementById("log");
+    const clear = document.getElementById("clear");
+
+    function logger(text) {
+      const p = document.createElement("p");
+      p.textContent = text;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight; // auto scroll
+    }
+
+    // Add event listeners with both bubbling and capturing
+    [grandparent, parent, child].forEach((el) => {
+      // Capturing phase (true)
+      el.addEventListener("click", () => {
+        logger(`${el.id} (capturing)`);
+      }, true);
+
+      // Bubbling phase (default)
+      el.addEventListener("click", () => {
+        logger(`${el.id} (bubbling)`);
+      });
+    });
+
+    // Clear log button
+    clear.addEventListener("click", () => {
+      log.innerHTML = "Logs cleared 👇";
+    });
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation with stopPropagation()</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .box {
+      padding: 30px;
+      margin: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+    #grandparent { background: #ffe0e0; }
+    #parent { background: #e0ffe0; }
+    #child { background: #e0e0ff; cursor: pointer; }
+    #log {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #f9f9f9;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 Event Propagation Project</h2>
+
+  <div id="grandparent" class="box">
+    Grandparent
+    <div id="parent" class="box">
+      Parent
+      <div id="child" class="box">Child (Click Me)</div>
+    </div>
+  </div>
+
+  <button id="clear">Clear Log</button>
+  <button id="toggle">Toggle stopPropagation ON/OFF</button>
+
+  <div id="log">Logs will appear here 👇</div>
+
+  <script>
+    const grandparent = document.getElementById("grandparent");
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+    const log = document.getElementById("log");
+    const clear = document.getElementById("clear");
+    const toggle = document.getElementById("toggle");
+
+    let stopEnabled = false; // by default, bubbling works normally
+
+    function logger(text) {
+      const p = document.createElement("p");
+      p.textContent = text;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight; // auto scroll
+    }
+
+    [grandparent, parent, child].forEach((el) => {
+      // Capturing phase
+      el.addEventListener("click", (e) => {
+        logger(`${el.id} (capturing)`);
+      }, true);
+
+      // Bubbling phase
+      el.addEventListener("click", (e) => {
+        logger(`${el.id} (bubbling)`);
+        if (stopEnabled && el.id === "child") {
+          e.stopPropagation(); // cut event flow at child
+          logger("🚫 stopPropagation() called at child!");
+        }
+      });
+    });
+
+    // Clear log button
+    clear.addEventListener("click", () => {
+      log.innerHTML = "Logs cleared 👇";
+    });
+
+    // Toggle stopPropagation
+    toggle.addEventListener("click", () => {
+      stopEnabled = !stopEnabled;
+      toggle.textContent = stopEnabled 
+        ? "stopPropagation is ON" 
+        : "stopPropagation is OFF";
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- 
+
+Example with 3 boxes (Grandparent → Parent → Child)
+
+* If you click the child:
+
+  * In capturing: first grandparent → parent → child.
+  * Then in bubbling: child → parent → grandparent.
+
+So the log looks like:
+```
+grandparent (capturing)
+parent (capturing)
+child (capturing)
+child (bubbling)
+parent (bubbling)
+grandparent (bubbling)
+```
+
+### 🚫 What does `stopPropagation()` do?
+
+* If you call it on the child’s click, the event will **not travel upwards anymore**.
+* That means **parent and grandparent bubbling listeners won’t fire**.
+* Capturing still happened, but bubbling stopped midway.
+
+So with `stopPropagation()` at child, the log ends like this:
+```
+grandparent (capturing)
+parent (capturing)
+child (capturing)
+child (bubbling)
+🚫 stopPropagation() called at child!
+```
+
+✅ In one line:
+
+* Event = travels down (capturing) → target → travels up (bubbling).
+* `stopPropagation()` cuts the journey short and prevents parents from hearing the event.
+* `preventDefault()` stops the *default action* (like a link opening).
+
+-->
+
