@@ -32,6 +32,5 @@ It’s not a real array, but it’s array-like (has .length, can use forEach, an
 NodeList is the browser’s way of giving you a list of elements from the DOM.
 
 It’s not a real Array, but “array-like.”
-
 It works fine for looping, and if you need more, you can convert it.
 */
