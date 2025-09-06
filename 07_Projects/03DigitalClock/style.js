@@ -11,3 +11,27 @@ let date = new Date();
 clock.innerHTML = date.toLocaleTimeString();
 } ,1000);
 // } ,2000);
+
+
+/*
+✅ Key differences
+
+Syntax:
+querySelector('#clock') → requires #
+getElementById('clock') → just the id name
+
+Flexibility:
+querySelector → can select by id, class, tag, attribute, complex CSS
+getElementById → only by id
+
+Performance:
+getElementById is slightly faster (direct lookup), but difference is negligible in small projects.
+
+Return:
+Both return the element (or null if not found).
+
+👉 In short:
+Use getElementById('clock') when you’re only selecting by id.
+Use querySelector('#clock') when you might want more flexible selectors.
+
+*/

@@ -11,8 +11,9 @@ body {
       }
       #clock {
         font-size: 40px;
-        background-color: orange;
+        background-color: rgb(105, 56, 212);
         padding: 20px 50px;
         margin-top: 10px;
         border-radius: 10px;
       }
+      

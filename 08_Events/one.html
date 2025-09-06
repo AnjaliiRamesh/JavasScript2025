@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Learning Events</h2>
+    <div >
+        <ul id="images">
+            <!-- using onclick event in the clss itself is not a good practice as it may geerate error when scaled -->
+            <!-- <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop" onclick="alert('photoshop')"></li> -->
+
+             <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //not a good practice gives less features
+    // document.getElementById('river').onclick = function(){
+    //     alert("river clicked")
+    //     // console.log()
+    // }
+
+    // best approach as it gives propagation ability
+    // document.getElementById('river').addEventListener('click', function(){
+    //     alert("river clicked again!!");
+    // })
+
+    //events to learn
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+                
+    //attachEvent()
+    //  document.getElementById('river').addEventListener('click', function(e){
+    //     console.log(e);    
+    // }, false)
+   
+    //event propagation
+    //false => clicked inside the ul => clicked inside the river => clicked inside the ul
+    // false at the end means the listener runs in the bubbling phase (default).
+    //   document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");   
+    // }, false)
+
+//True => clicked inside the ul => clicked inside the river
+    //  document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");   
+    // }, true)
+
+    //stopPropagation()=> buuble hoke upar nhi jata
+//      document.getElementById('river').addEventListener('click', function(e){
+//         console.log("clicked inside the river"); 
+//         e.stopPropagation();  
+//     }, false)
+
+/*
+e.preventDefault();
+This stops the default action of the element.
+In this case, since google is likely a link (<a>), the default action would be navigating to Google’s website.
+With preventDefault(), clicking won’t take you to Google.
+*/
+/*
+e.stopPropagation();
+This stops the event from bubbling up (or going down if capturing).
+So, if this <a> was inside a parent <div> with a click listener, that parent would not get triggered.
+*/
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("google clicked");  
+    // },false)
+
+    /****************** Project ***********************/
+
+    document.querySelector('#images').addEventListener('click', function(e) {
+        // console.log(e); 
+        // console.log(e.target);//ye batyega ki eevnt aa kaha se raha h
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let magic = e.target.parentNode
+        magic.remove();
+        }
+       
+
+        
+    })
+
+</script>
+</html>

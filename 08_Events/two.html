@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #f9f9f9;
+      white-space: pre-wrap; /* keep line breaks */
+    }
+    button, input {
+      padding: 10px 15px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 JavaScript Events Demo</h2>
+  
+  <button id="btn">Click Me</button>
+  <br>
+  <input type="text" id="inp" placeholder="Type something and press keys...">
+  
+  <div id="output">Event details will appear here 👇</div>
+  
+  <script>
+    const btn = document.getElementById("btn");
+    const inp = document.getElementById("inp");
+    const output = document.getElementById("output");
+
+    function showEventDetails(event) {
+      let details = `
+Event Type: ${event.type}
+Timestamp: ${event.timeStamp}
+Default Prevented: ${event.defaultPrevented}
+
+Target: ${event.target.tagName}
+Current Target: ${event.currentTarget.tagName}
+To Element: ${event.toElement ? event.toElement.tagName : "N/A"}
+Src Element: ${event.srcElement ? event.srcElement.tagName : "N/A"}
+
+ClientX: ${event.clientX}, ClientY: ${event.clientY}
+ScreenX: ${event.screenX}, ScreenY: ${event.screenY}
+
+AltKey: ${event.altKey}, CtrlKey: ${event.ctrlKey}, ShiftKey: ${event.shiftKey}
+Key (if any): ${event.key || "N/A"}
+KeyCode (if any): ${event.keyCode || "N/A"}
+      `;
+      output.textContent = details;
+    }
+
+    btn.addEventListener("click", showEventDetails);
+    btn.addEventListener("mouseover", showEventDetails);
+    btn.addEventListener("mouseout", showEventDetails);
+    inp.addEventListener("keydown", showEventDetails);
+    inp.addEventListener("keyup", showEventDetails);
+  </script>
+</body>
+</html>
