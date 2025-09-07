@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScipt by chai & code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+
+    <script>
+        // setInterval(function() {
+        //     // console.log("hi anjali"); 
+        //     // console.log("hi anjali", Date.now()); 
+        // },1000)
+
+        // const greet = function(str){
+        //     console.log(str, Date.now());    
+        // }
+        // // setInterval(greet, 1000, "anjali")
+        // const Intervalstop  = setInterval(greet, 1000, "anjali");
+        // clearInterval(Intervalstop);
+//          let intervalId;
+//         document.querySelector('#start').addEventListener('click', function(){
+//             const SayHi = function (){
+//             console.log("hii anjali");   
+
+//         }
+//         // setInterval(SayHi, 2000);
+//         })
+
+
+
+/***************************************************/
+
+// WAP such that when you click start it should start printing and when you click stop it should stop priniting
+
+  let intervalId; // store the interval ID globally so both buttons can access it
+
+  document.querySelector('#start').addEventListener('click', function () {
+    // only start if it's not already running
+    if (!intervalId) {
+      intervalId = setInterval(() => {
+        console.log("hii Anjali");
+      }, 1000);
+    }
+  });
+
+  document.querySelector('#stop').addEventListener('click', function () {
+    clearInterval(intervalId); // stops the interval
+    console.log(`stopped`);
+    intervalId = null; // reset so we can start again later
+  });
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- 
+
+setInterval(fn, time) → runs a function again and again, every time milliseconds.
+clearInterval(id) → stops the repeating action started by setInterval.
+
+clearTimeout(id) → cancels a scheduled one-time action.
+clearInterval(id) → cancels a repeating action.
+
+setInterval => Runs a function again and again after every given time.
+setTimeout => Runs a function only once after the given time.
+
+flow diagram 
+When you click Start, it first checks → is interval already running?
+If not running, it creates an interval → which keeps printing "hii Anjali" every 2 seconds.
+If it’s already running, nothing new happens (no duplicate intervals).
+When you click Stop, it clears the interval and resets everything → so you can start fresh again
+
+
+Why declare let intervalId; outside?
+We want both the Start and Stop buttons to access the same ID.
+If we declared it inside Start’s function, Stop wouldn’t know about it
+-->
