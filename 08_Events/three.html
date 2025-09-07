@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Project</title>
+</head>
+<body>
+    <h1>JavaScipt - Events</h1>
+    <button id="stop">Stop</button>
+    <script>
+        // setTimeout(function() {
+        //     console.log("Anjali");
+            
+        // },2000)
+
+        // const SayHi = function (){
+        //     console.log("hii anjali");   
+        // }
+        // setTimeout(SayHi, 2000)
+
+        // document.querySelector('h1').innerHTML = "HI, m Learning JavaScript"
+        // const changeText = function(){
+        //     document.querySelector('h1').innerHTML = "HI, m Learning JavaScript from chai and code"
+        // }
+        // const Stopit = setTimeout(changeText, 5000);
+        // document.querySelector('#stop').addEventListener('click', function(){
+        //     clearTimeout(Stopit);
+        //     console.log("stopped");   
+        // })
+
+console.log("Start");
+
+let timerId = setTimeout(() => {
+  console.log("Hello after 2 seconds");
+}, 2000);
+
+console.log("End");
+
+let timerId1 = setTimeout(() => {
+  console.log("This will never run");
+}, 3000);
+
+clearTimeout(timerId); // cancels the timeout
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+⚡ Real-life Analogy:
+setTimeout() = telling your friend “Remind me to drink water after 5 minutes.”
+clearTimeout() = “Never mind, cancel that reminder.”
+
+
+⏳ setTimeout()
+
+Used to run a function after a delay (once).
+Syntax:
+let timerId = setTimeout(function, delay, arg1, arg2, ...);
+
+
+function → code to run
+delay → time in milliseconds (1000 ms = 1 second)
+timerId → an ID (number) returned, used to cancel later
+
+
+❌ clearTimeout()
+Cancels a timer created with setTimeout().
+Needs the timer ID returned by setTimeout().
+
+-->
+
+
