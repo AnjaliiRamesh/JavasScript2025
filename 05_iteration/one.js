@@ -67,14 +67,45 @@
 // }
 
 // let color = "red";
-let color = "yellow";
-// let color = "green";
-if(color == "red"){
-    console.log("stop");  
-}
-if(color == "yellow"){
-    console.log("wait");  
-}
-if(color == "green"){
-    console.log("go");  
-}
+// let color = "yellow";
+// // let color = "green";
+// if(color == "red"){
+//     console.log("stop");  
+// }
+// if(color == "yellow"){
+//     console.log("wait");  
+// }
+// if(color == "green"){
+//     console.log("go");  
+// }
+
+// let price;
+// // let size = "xl";
+// // let size = "L";
+// // let size = "M";
+// let size = "S";
+
+// if(size == "xl"){
+//     console.log("price is 250");   
+// }
+// else if(size == "L"){
+//     console.log("price is 200");   
+// }
+// else if(size == "M"){
+//     console.log("price is 100");   
+// }
+// else{
+//     console.log("price is 50");   
+// }
+// let good = "anjali";
+// let good = "pushpanjali";
+// if(good[0] == "a" && good.length >3){
+//     console.log("good string");    
+// }
+// else{
+//     console.log("poor string");    
+// }
+let firstName = prompt("enter first name");
+let lastname = prompt("enter last name");
+let msg = prompt("welcome" + firstName + lastname+ "!")
+alert(msg)
