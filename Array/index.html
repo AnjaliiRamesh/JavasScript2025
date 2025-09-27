@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <!-- 
+        push() -> adds element at last and can also return add elements which u want to add like push("january")
+        pop() -> removes element from last and can also return same element no need just pop();
+        unshift() -> add element at start.. unshift("january")
+        shift() -> removes element from start.... shift()
+
+
+        indexOf() -> returns index number of the element if not present return -1
+        includes() -> if the element is present will return true else false
+
+
+        concat() -> merge karta h two arrays in the new array not original array
+        reverse() -> gives reversed element in the same original aaray
+
+        slice -> copies a portion of the array it doesnt make change in the same array
+        names.slice() -> pura ka pura hi return kr dega
+        names.slice(3) -> index 3 se end tak
+        names.slice(1,4) -> index 1 se 4-1 tak
+        names.slice(-1) -> last index
+        names.slice(-2)  -> last 2 elements
+        names.slice(8) -> empty cuz no element exist
+        names.slice(4) -> last element tha isliye ek hi aaya
+        names.slice(5) -> empty cuz 5 doesnt exist
+
+
+        splice() -> adds/removes elements in place makes changes in the given array itself
+        splice(start, deleteCount, add1, add1,....)
+
+        colors
+        (6) ['red', 'yellow', 'blue', 'green', 'purple', 'white']
+        colors.splice(3)
+        (3) ['green', 'purple', 'white'] //return kiya elemnts from 3
+        colors
+        (3) ['red', 'yellow', 'blue'] //these are the bache hue elements 
+        (5) ['yellow', 'blue', 'green', 'purple', 'white']
+        colors.splice(1,2) //start from 1st index and delete 2 elements
+        (2) ['yellow', 'blue']
+        colors
+        (4) ['red', 'green', 'purple', 'white']
+        colors.splice(0, 0, "a" , "b", "c") //start from 0th index delete 0 elements add "a b c" 
+        colors
+        (9) ['a', 'b', 'c', 'red', 'yellow', 'blue', 'green', 'purple', 'white']
+        colors.splice(2, 1, "b") //start from 2nd index delete the one elements add b 
+        ['yellow']
+        colors
+        (7) ['red', 'a', 'b', 'blue', 'green', 'purple', 'white']
+
+        //sort()
+        used only for strings and characters not nums
+        nums
+        (7) [1, 45, 23, 12, 87, 11, 9]
+        nums.sort()
+        (7) [1, 11, 12, 23, 45, 87, 9]
+        char
+        (6) ['a', 'e', 'b', 'v', 'c', 'x']
+        char.sort()
+        (6) ['a', 'b', 'c', 'e', 'v', 'x']
+
+
+        1 == 1 => true 
+        1 === 1 => true 
+        "naaa" == "naaa" =>  true
+        "naaa" === "naaa" =>  true
+        [1] == [1] => false //bcoz these are array and they are pointing to some memory both the array cant have same memory refer
+        [1] === [1] => false
+
+        agar aap ek array ko dusre array se assign kar dete ho to they both start pointint to same memory referece 
+        uske baad aap agar ek bhi arrage me change kroge to it will be reflected in the other array too 
+        arr
+        (5) ['a', 'b', 'c', 'd', 'e']
+        let arrCopy = arr;
+        arr = arrCopy;
+        (5) ['a', 'b', 'c', 'd', 'e']
+        arr === arrCopy;
+        true
+        arr.push("f")
+        6
+        arr
+        (6) ['a', 'b', 'c', 'd', 'e', 'f']
+        arrCopy
+        (6) ['a', 'b', 'c', 'd', 'e', 'f']
+
+
+        const name = 10;
+        name = 11 //not possible const var apne values nhi change karega;
+
+        agar koi arr constant h to uske values me aap changes kar sakte ho lekin usme kisi aur arr ke address ko point nhi kar sakte
+        const numArr = [1, 2,3]
+        numArr.push(4)
+        4
+        numArr
+        (4) [1, 2, 3, 4]
+        numArr.pop()
+        4
+        numArr
+        (3) [1, 2, 3]
+        const numArr2 = [4, 5, 6, 7]
+        undefined
+        numArr = numArr2 // Assignment to constant variable not possible
+
+
+        //NESTED ARRAY
+        let nArr = [[1,2], [3,4], [5,6,7]];
+        nArr
+        (3) [Array(2), Array(2), Array(3)]
+        nArr.length
+        3
+        nArr[0]
+        (2) [1, 2]
+        nArr[1].length
+        2
+        nArr[2].length
+        3
+        nArr[2][2]
+        7
+        nArr[0][1]
+        2
+        nArr[2][3]
+        undefined
+
+
+        //tic-tac-toe
+        game
+        (3) [Array(3), Array(3), Array(3)]
+        game[0]
+        (3) ['x', null, '0']
+        game[0][1]
+        null
+        game[0][1] = '0'
+        '0'
+        game
+        (3) [Array(3), Array(3), Array(3)]
+        0:   ['x', '0', '0']
+        1:   [null, 'x', null]
+        2:   ['0', null, 'x']
+        length: 3[[Prototype]]: Array(0)
+
+     -->
+
+    <script src="style.js"></script>
+</body>
+</html>

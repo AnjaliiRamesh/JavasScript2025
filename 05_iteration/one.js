@@ -107,5 +107,5 @@
 // }
 let firstName = prompt("enter first name");
 let lastname = prompt("enter last name");
-let msg = prompt("welcome" + firstName + lastname+ "!")
-alert(msg)
+let msg = "welcome" + firstName + lastname+ "!";
+alert(msg);
