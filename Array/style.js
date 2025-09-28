@@ -1,4 +1,5 @@
-// let months = ['jan' ,'feb', 'mar', 'apr']
+let months1 = ['jan' ,'feb', 'mar', 'apr'];
+
 let months = ['jan' ,'july', 'mar', 'apr'];
 
 let colors = ['red', 'yellow' , 'blue','green', 'purple', 'white'];
