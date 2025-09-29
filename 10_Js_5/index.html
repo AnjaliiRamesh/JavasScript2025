@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    
+  <!-- 
+    object literals are used to store keyed collections
+    property =>(key,val)pair
+    objects are collection of properties
+    agar objects ko const se declare kr diya to uske address ko aap change nhi kr sakte par uske key value pairs ke sath manipulations kr sakte ho
+    objects ke andar array ko bhi store kara sakte h
+
+obj
+{1: 'a', 2: 'b', true: 'c', null: 'd', undefined: 'e'}1: "a"2: "b"null: "d"true: "c"undefined: "e"[[Prototype]]: Object
+"null" //here null is taken as a string not a keyword
+'null'
+null
+null
+obj[1] // it is not index 1 is first converted to string to access
+'a'
+obj[2]
+'b'
+obj[null]
+'d'
+obj[undefined]
+'e'
+obj.1 //dot operator 1 ko directly as a string convert nhi krta
+VM1500:1 Uncaught SyntaxError: Unexpected number
+
+
+*values ko update karne ke liye simply usse access karke value daal do
+student1.age = 23
+aur ab jab student1 ko print karaoge to updated value print karega 
+*agar puri ke nyi property add karni ho student1.gender = "female";
+*not neccessary ki pehle number tha to abhi bhi number hi ho string bhi kr skate ho student1.marks = "A";
+*you can also create array
+*can be deleted too with delete keyword
+delete student1.marks
+true
+student1
+{name: 'anjali', age: 21}
+    
+
+Math
+Math {abs: ƒ, acos: ƒ, acosh: ƒ, asin: ƒ, asinh: ƒ, …}
+Math.abs(-12) //neg ko pos dega
+12
+Math.abs(12)
+12
+Math.floor(5.6784) // nearest smallest integer value
+5
+Math.floor(-5.897)
+-6
+Math.pow(2,4) //power 
+16
+Math.ceil(5.89) //largest ki taraf roundoff karta h
+6
+Math.ceil(5.12)
+6
+Math.ceil(5.00)
+5
+
+Math.random() //har baar ek nyi random value generate karke deta h but betwoon 0 to 1 1 is not included
+0.17551320978721907
+Math.random()
+0.06731659311106197
+
+
+Generates random interger from 1 to 9
+Math.floor(Math.random()*10)
+Math.floor(Math.random()*10)+1; //for 1 to 10
+Math.floor(Math.random()*5)+1; //for 1 to 5
+Math.floor(Math.random()*100)+1; //for 1 to 100
+Math.floor(Math.random()*5)+20;
+
+Math.floor(Math.random() * 10) + 20
+Math.random()*10 → gives a decimal from 0 up to (but not including) 10.
+After Math.floor, you get an integer 0–9.
+Adding 20 → final number is 20–29.
+
+
+Math.floor(Math.random() * 5) + 20
+Math.random()*5 → gives a decimal from 0 up to (but not including) 5.
+After Math.floor, you get an integer 0–4.
+Adding 20 → final number is 20–24.
+
+In short:
+First line gives a random integer between 20 and 29.
+Second line gives a random integer between 20 and 24.
+
+
+
+steps
+
+-->
+    <!-- <script src="script1.js"></script> -->
+    <!-- <script src="script2.js"></script> -->
+     <script src="hwqs.js"></script>
+</body>
+</html>
