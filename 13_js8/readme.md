@@ -172,3 +172,11 @@ box.classList.add("newClass");
 
 👉 In short:
 classList is the modern, safer, and easier way to work with CSS classes in JavaScript.
+
+createElement()->append();
+button.setAttribute('id', 'btn');
+input.setAttribute('placeholder', 'username');
+button
+<button id='btn> clickme! </button>
+input
+<input placeholder = "username">
