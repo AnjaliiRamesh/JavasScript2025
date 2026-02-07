@@ -1,7 +1,7 @@
 //   
 var myAge = 20;
 console.log( myAge);
-// data types define the type of values that a varoable can hold
+// data types define the type of values that a variable can hold
 // Primitive data types
 // 1. Number: represents numeric values, including integers and floating-point numbers.
 // var num = 5;
@@ -36,7 +36,7 @@ console.log( myAge);
 // console.log(name);
 // console.log(typeof name);
 
-// 
+
 // CONVERT STRING TO A NUMBER
 // var mynum = "10";
 // console.log(typeof mynum); 
