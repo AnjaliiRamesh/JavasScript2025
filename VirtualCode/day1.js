@@ -83,3 +83,16 @@ for(var [index, color] of colorsArr.entries()){
 }
 
 */  
+
+// In JavaScript, 02 is simply interpreted as the number 2.
+
+// The leading zero does not change the value.
+
+// So internally it becomes: 2==2
+
+let num1=2;
+let num2=02;
+if(num1==num2)
+ console.log("true");
+else
+ console.log("false");
