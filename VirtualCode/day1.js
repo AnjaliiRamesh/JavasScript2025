@@ -13,7 +13,7 @@ console.log(person.age)
 bracket notation
 console.log(person['firstName'])
 
-*/
+
 
 var caption = {
     firstName : "anjali",
@@ -38,4 +38,48 @@ var caption = {
 caption.fav = ['momos','panipuri','manchurian']
 
 delete caption.firstName
-console.log(caption)
+console.log(caption);
+
+
+
+var num = [2,3,4,5,6,7,8];
+var squaredArray = [];
+
+for(var i=0; i<num.length; i++){
+    squaredArray.push(num[i]*num[i]);
+}
+console.log(squaredArray);
+ 
+
+//for-in loop
+var colors = {
+    primary: 'blue',
+    secondary: 'green',
+    tertiary: 'white'
+}
+
+for(var color in colors){
+    // console.log(colors[color]);
+    console.log(color + ' -> ' + colors[color]);
+}
+
+
+
+var colorsArr = ['yellow', 'green', 'orange', 'pink']
+
+for(var color in colorsArr){
+    // console.log(colorsArr[color])
+    console.log(color + ' -> '+colorsArr[color])
+}
+
+
+//For-of
+
+var colorsArr = ['yellow', 'green', 'orange', 'pink']
+
+for(var [index, color] of colorsArr.entries()){
+    console.log(color)
+    // console.log(index + ' -> '+color)
+}
+
+*/  
